@@ -1,0 +1,42 @@
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8"/>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    h4 {
+      color: blue;
+    }
+    .green {
+      background-color: rgb(170, 255, 170);
+    }
+    .red {
+      background-color: rgb(255, 170, 170);
+    }
+  </style>
+</head>
+<body>
+<div id="app" :class="activeClass">
+  <h1>{{ calc }}</h1>
+  {{number}}
+  <hr>
+  <input type="text" v-model="number"/> <br>
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            title: "짝수",
+            number: 0,
+        },
+        computed: {
+          calc() {
+              return this.number % 2 == 0 ? "짝수" : "홀수";
+          },
+          activeClass() {
+              return this.number % 2 == 0 ? "green" : "red"
+          }
+        }
+    })
+</script>
+</body>
+</html>

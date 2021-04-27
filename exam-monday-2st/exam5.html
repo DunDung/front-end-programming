@@ -1,0 +1,43 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    #box {
+      width: 100%;
+      height: 20%;
+      border: 1px solid black;
+      background-color: palegreen;
+      display: flex;
+      /*수직 중앙 정렬*/
+      align-items: center;
+      /*수평 중앙 정렬*/
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <h1>{{ title }}</h1>
+  <h4 style="color: blue">{{isView}}</h4>
+  <p>{{select === '보이기'}}</p>
+  <hr>
+  <select v-model="select">
+    <option>감추기</option>
+    <option>보이기</option>
+  </select>
+  <div v-if="select==='보이기'" id="box">
+    <h1>Hello Vue.js</h1>
+  </div>
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            title: 'select',
+            select: '감추기',
+        }
+    })
+</script>
+</body>
+</html>

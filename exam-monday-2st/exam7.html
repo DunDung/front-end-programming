@@ -1,0 +1,36 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    h4 {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <h1>곱셈</h1>
+  <h4>{{ result }}</h4>
+  <hr>
+  <input type="text" v-model="a"/> <br>
+  <input type="text" v-model="b"/>
+  <button @click="multiply()">곱셈</button>
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            a: 0,
+            b: 0,
+            result: 0
+        },
+        methods: {
+            multiply() {
+                return this.result = this.a * this.b
+            }
+        }
+    })
+</script>
+</body>
+</html>
