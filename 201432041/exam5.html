@@ -1,0 +1,47 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    .ten {
+     font-size: 10px;
+    }
+    .twenty {
+      font-size: 20px;
+    }
+    .thirty {
+      font-size: 30px;
+    }
+
+  </style>
+</head>
+<body>
+<div id="app">
+  <p :class="activeClass">hello</p>
+  <select v-model="size">
+    <option selected>10</option>
+    <option>20</option>
+    <option>30</option>
+  </select>
+</div>
+<script type="text/javascript">
+  var app = new Vue({
+    el: '#app',
+    data: {
+      size: 10,
+    },
+    computed: {
+      activeClass() {
+        if (this.size == 10) {
+          return "ten";
+        } else if (this.size == 20) {
+          return "twenty";
+        } else {
+          return "thirty";
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

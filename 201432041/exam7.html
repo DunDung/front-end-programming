@@ -1,0 +1,43 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    #app {
+      height: 100px;
+    }
+    .yellow {
+      background-color: rgb(255, 255, 170);
+    }
+    .green {
+      background-color: rgb(170, 255, 170);
+    }
+    .red {
+      background-color: rgb(255, 170, 170);
+    }
+    p {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app" :class="color">
+  <h1>select</h1>
+  <select v-model="color">
+    <option></option>
+    <option>yellow</option>
+    <option>green</option>
+    <option>red</option>
+  </select>
+  <p v-show="color === ''">색을 선택하세요</p>
+</div>
+<script type="text/javascript">
+  var app = new Vue({
+    el: '#app',
+    data: {
+      color: "",
+    },
+  })
+</script>
+</body>
+</html>

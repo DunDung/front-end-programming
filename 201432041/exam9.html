@@ -1,0 +1,47 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    #app {
+      height: 100px;
+    }
+    .yellow {
+      background-color: rgb(255, 255, 170);
+    }
+    .green {
+      background-color: rgb(170, 255, 170);
+    }
+    .red {
+      background-color: rgb(255, 170, 170);
+    }
+  </style>
+</head>
+<body>
+<div id="app" :class="color">
+  <h1>buttons</h1>
+  <button @click="yellow">yellow</button>
+  <button @click="green">green</button>
+  <button @click="red">red</button>
+</div>
+<script type="text/javascript">
+  var app = new Vue({
+    el: '#app',
+    data: {
+      color: "",
+    },
+    methods: {
+      yellow() {
+        this.color = "yellow"
+      },
+      green() {
+        this.color = "green"
+      },
+      red() {
+        this.color = "red"
+      }
+    }
+  })
+</script>
+</body>
+</html>

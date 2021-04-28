@@ -1,0 +1,29 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+  </style>
+</head>
+<body>
+<div id="app">
+  <h1>입력</h1>
+  <input type="text" v-model="text"/>
+  <hr>
+  {{ toUpperCase }}
+</div>
+<script type="text/javascript">
+  var app = new Vue({
+    el: '#app',
+    data: {
+      text: "",
+    },
+    computed: {
+      toUpperCase() {
+        return this.text.toUpperCase();
+      }
+    }
+  })
+</script>
+</body>
+</html>
