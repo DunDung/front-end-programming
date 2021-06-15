@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>합계</h1>
+      <input type="text" v-model="num1" />
+      <br/>
+      <input type="text" v-model="num2" />
+      <hr />
+      <input type="text" v-model="sum" > <span>{{evan}}</span>
+    </div>
+    <script type="text/javascript">
+      var app = new Vue({
+        el: "#app",
+        data: { num1: 0, num2: 0, num3: 0 },
+        methods: {
+          sum2() {
+            return eval(`${this.num1} + ${this.num2}`);
+          }
+        },
+        computed: {
+          sum: {
+            get: function() {
+              return eval(`${this.num1} + ${this.num2}`);
+            },
+            set: function(value) {
+              const a = value / 2;
+              this.num1 = a;
+              this.num2 = a;
+            }
+          },
+          evan() {
+            if (this.sum % 2 == 0) {
+              return "짝수";
+            } else {
+              return "홀수";
+            }
+          }
+        },
+      });
+    </script>
+  </body>
+</html>

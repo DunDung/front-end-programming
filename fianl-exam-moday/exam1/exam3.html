@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 200px;
+      }
+      #thead {
+        background-color: lightgrey;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>2차원 배열</h1>
+      <table border="1">
+        <tr v-for="(value, index) in values" :key="index">
+          <td>{{value[0]}}</td>
+          <td>{{value[1]}}</td>
+          <td>{{value[2]}}</td>
+          <td>{{value[3]}}</td>
+        </tr>
+      </table>
+      <div>
+        <label>행</label>
+        <input type="text" v-model="row" />
+      </div>
+      <div>
+        <label>열</label>
+        <input type="text" v-model="col" />
+      </div>
+      <div>
+        <label>값</label>
+        <input type="text" v-model="value" />
+        <button @click="onClick">대입</button>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var app = new Vue({
+        el: "#app",
+        data: {
+          values: [
+            [0, 1, 2, 3],
+            [4, 5, 6, 7],
+            [8, 9, 10, 11],
+            [12, 13, 14, 15],
+          ],
+          row: 0,
+          col: 0,
+          value: 0,
+        },
+        methods: {
+          onClick() {
+            this.values[this.row][this.col] = this.value;
+            this.row = 0;
+            this.col = 0;
+            this.value = 0;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

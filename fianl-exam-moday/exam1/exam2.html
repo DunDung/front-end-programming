@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 200px;
+      }
+      #thead {
+        background-color: lightgrey;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>목록</h1>
+      <table border="1">
+        <tr id="thead">
+          <td>번호</td>
+          <td>값</td>
+        </tr>
+        <tr>
+          <td colspan="2">값이 없습니다.</td>
+        </tr>
+        <tr v-for="(value, index) in values" :key="index">
+          <td>{{value.id}}</td>
+          <td>{{value.value}}</td>
+        </tr>
+      </table>
+      <input type="text" v-model="value"> <button @click="onClick">추가</button>
+    </div>
+    <script type="text/javascript">
+      var app = new Vue({
+        el: "#app",
+        data: {
+          values: [],
+          value: ""
+        },
+        methods: {
+          onClick() {
+            this.values.push({
+              id: this.values.length + 1,
+              value: this.value
+            })
+            this.value = "";
+            console.log(this.values)
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
